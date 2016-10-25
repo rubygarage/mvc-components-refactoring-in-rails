@@ -1,0 +1,86 @@
+<% content_for :header do %>
+  <title>
+    <% if @car.title_for_head %>
+      <%="#{ @car.title_for_head } | #{t('beautiful_cars')}" %>
+    <% else %>
+      <%= t('beautiful_cars') %>
+    <% end %>
+  </title>
+  <% if @car.description_for_head%>
+    <meta name='description' content= "#{<%= @car.description_for_head %>}">
+  <% end %>
+<% end %>
+
+<% if @car.image %>
+  <%= image_tag @car.image.url %>
+<% else %>
+  <%= image_tag 'no-images.png'%>
+<% end %>
+
+<h1>
+  <%= t('brand') %>
+  <% if @car.brand %>
+    <%= @car.brand %>
+  <% else %>
+     <%= t('undefined') %>
+  <% end %>
+</h1>
+
+<p>
+  <%= t('model') %>
+  <% if @car.model %>
+    <%= @car.model %>
+  <% else %>
+     <%= t('undefined') %>
+  <% end %>
+</p>
+
+<p>
+  <%= t('notes') %>
+  <% if @car.notes %>
+    <%= @car.notes %>
+  <% else %>
+     <%= t('undefined') %>
+  <% end %>
+</p>
+
+<p>
+  <%= t('owner') %>
+  <% if @car.owner %>
+    <%= @car.owner %>
+  <% else %>
+     <%= t('undefined') %>
+  <% end %>
+</p>
+
+<p>
+  <%= t('city') %>
+  <% if @car.city %>
+    <%= @car.city %>
+  <% else %>
+     <%= t('undefined') %>
+  <% end %>
+</p>
+
+<p>
+  <%= t('owner_phone') %>
+  <% if @car.phone %>
+    <%= @car.phone %>
+  <% else %>
+     <%= t('undefined') %>
+  <% end %>
+</p>
+
+<p>
+  <%= t('state') %>
+  <% if @car.used %>
+    <%= t('used') %>
+  <% else %>
+    <%= t('new') %>
+  <% end %>
+</p>
+
+<p>
+  <%= t('date') %>
+  <%= @car.created_at.strftime("%B %e, %Y")%>
+</p>

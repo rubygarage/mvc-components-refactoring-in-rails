@@ -1,0 +1,39 @@
+<% content_for :header do %>
+  <title>
+      <%= @article.title_for_head_tag || I18n.t('default_title_for_head') %>
+  </title>
+  <meta name='description' content="<%= @article.description_for_head_tag || I18n.t('default_description_for_head') %>">
+
+   <meta property="og:type" content="article">
+   <meta property="og:title" content="<%= @article.title %>">
+   <% if @article.description_for_head_tag %> 
+     <meta property="og:description" content="<%= @article.description_for_head_tag %>">
+   <% end %>
+   <% if @article.image %>
+      <meta property="og:image" content="<%= "#{request.protocol}#{request.host_with_port}#{@article.main_image}" %>">
+   <% end %>
+<% end %>
+
+<% if @article.image %>
+  <%= image_tag @article.image.url %>
+<% else %>
+  <%= image_tag 'no-image.png'%>
+<% end %>
+<h1>
+  <%= @article.title %>
+</h1>
+
+<p>
+  <%= @article.text %>
+</p>
+
+<% if @article.author %>
+<p>	
+  <%= "#{@article.author.first_name} #{@article.author.last_name}" %> 
+</p>
+<%end%>
+
+<p>
+  <%= t('date') %>
+  <%= @article.created_at.strftime("%B %e, %Y")%>
+</p>

@@ -1,0 +1,14 @@
+<% content_for :header do %>
+  <%= @car.meta_title %>
+  <%= @car.meta_description%>
+<% end %>
+
+<%= @car.image %>
+<h1> <%= t('brand') %> <%= @car.brand %> </h1>
+<p> <%= t('model') %> <%= @car.model %>  </p>
+<p> <%= t('notes') %> <%= @car.notes %>  </p>
+<p> <%= t('owner') %> <%= @car.owner %>  </p>
+<p> <%= t('city') %> <%= @car.city %> </p>
+<p> <%= t('owner_phone') %> <%= @car.phone %> </p>
+<p> <%= t('state') %> <%= @car.state %>   </p>
+<p> <%= t('date') %> <%= @car.created_at%> </p>

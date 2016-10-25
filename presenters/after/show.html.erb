@@ -1,0 +1,14 @@
+<% presenter @article do |article_presenter| %>
+  <% content_for :header do %>
+    <%= article_presenter.meta_title %>
+    <%= article_presenter.meta_description %>
+    <%= article_presenter.og_type %>
+    <%= article_presenter.og_title %>
+    <%= article_presenter.og_description %>
+    <%= article_presenter.og_image %>
+  <% end %>
+  <%= article_presenter.image%>
+  <h1> <%= article_presenter.title %> </h1>
+  <p>  <%= article_presenter.text %> </p>
+  <%= article_presenter.author_name %>
+<% end %>
