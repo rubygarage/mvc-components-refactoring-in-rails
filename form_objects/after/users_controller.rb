@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def create
     @form = UserForm.new(user_params)
-
-
+    
     if @form.persist
       render json: @form.record
     else
@@ -10,9 +9,7 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
-
 
   def user_params
     params
